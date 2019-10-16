@@ -319,13 +319,12 @@ You can change this by redefining `awful.ewmh.activate(c)` in your rc.lua. If
 you don't want new clients to be urgent by default put this in your rc.lua:
 
     client.disconnect_signal("request::activate", awful.ewmh.activate)
-    function awful.ewmh.activate(c)
-        if c:isvisible() then
-            client.focus = c
-            c:raise()
+    function newactivate(c)
+        if c:isvisible() or c.minimized then
+            awful.ewmh.activate(c)
         end
     end
-    client.connect_signal("request::activate", awful.ewmh.activate)
+    client.connect_signal("request::activate", newactivate)
 
 ## Usage
 
