@@ -316,7 +316,8 @@ You can call the `awful.layout.set()` function, here's an example:
 ### Why are new clients urgent by default?
 
 By default, new windows/clients will highlight the tag they appear on, unless
-the tag is currently visible. You can change this behaviour by wrapping 
+the tag is currently visible. You can read more about the "urgent" property in 
+@{client.urgent|the documentation}. You can change the behaviour by wrapping 
 `awful.ewmh.activate(c)` in your rc.lua. If you don't want new clients to be 
 urgent by default, put this in your rc.lua:
 
